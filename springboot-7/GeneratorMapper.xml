@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <!--    指定连接数据库的 JDBC 驱动包所在位置-->
+    <classPathEntry location="D:\Work\mysql-connector-java-8.0.25.jar"/>
+
+    <!--    配置 table 表信息内容体，targetRuntime指定采用 MyBatis3 的版本-->
+    <context id="tables" targetRuntime="MyBatis3">
+
+        <!--        生成注释（注释全为英文），true为抑制生成-->
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+
+        <!--        配置连接数据库的信息-->
+        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/springboottest?serverTimezone=Asia/Shanghai"
+                        userId="root"
+                        password="1031">
+        </jdbcConnection>
+
+        <!-- 生成 model 类，targetPackage 指定 model 类的包，targetProject 指定在哪个工程下 -->
+        <javaModelGenerator targetPackage="com.bigdatayu.springboot.springboot7.entity"
+                            targetProject="src/main/java">
+            <property name="enableSubPackages" value="false"/>
+            <property name="trimStrings" value="false"/>
+        </javaModelGenerator>
+
+        <!-- 生成 MyBatis 的 Mapper.xml 文件 -->
+        <sqlMapGenerator targetPackage="com.bigdatayu.springboot.springboot7.mapper"
+                         targetProject="src/main/java">
+            <property name="enableSubPackages" value="false"/>
+        </sqlMapGenerator>
+
+        <!-- 生成 MyBatis 的 Mapper 接口类文件 -->
+        <javaClientGenerator type="XMLMAPPER"
+                             targetPackage="com.bigdatayu.springboot.springboot7.mapper"
+                             targetProject="src/main/java">
+            <property name="enableSubPackages" value="false"/>
+        </javaClientGenerator>
+
+        <table tableName="execution_jobs"
+               domainObjectName="executionJobs"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"/>
+    </context>
+</generatorConfiguration>

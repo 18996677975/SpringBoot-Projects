@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bigdatayu.springboot.springboot7.mapper.executionJobsMapper">
+  <resultMap id="BaseResultMap" type="com.bigdatayu.springboot.springboot7.entity.executionJobs">
+    <result column="exec_id" jdbcType="INTEGER" property="execId" />
+    <result column="project_id" jdbcType="INTEGER" property="projectId" />
+    <result column="version" jdbcType="INTEGER" property="version" />
+    <result column="flow_id" jdbcType="VARCHAR" property="flowId" />
+    <result column="job_id" jdbcType="VARCHAR" property="jobId" />
+    <result column="attempt" jdbcType="INTEGER" property="attempt" />
+    <result column="start_time" jdbcType="BIGINT" property="startTime" />
+    <result column="end_time" jdbcType="BIGINT" property="endTime" />
+    <result column="status" jdbcType="TINYINT" property="status" />
+    <result column="executor_id" jdbcType="INTEGER" property="executorId" />
+    <result column="schedule_exec_time" jdbcType="BIGINT" property="scheduleExecTime" />
+    <result column="invalid" jdbcType="TINYINT" property="invalid" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bigdatayu.springboot.springboot7.entity.executionJobs">
+    <result column="input_params" jdbcType="LONGVARBINARY" property="inputParams" />
+  </resultMap>
+  <sql id="Blob_Column_List">
+    input_params
+  </sql>
+  <insert id="insert" parameterType="com.bigdatayu.springboot.springboot7.entity.executionJobs">
+    insert into execution_jobs (exec_id, project_id, version, 
+      flow_id, job_id, attempt, 
+      start_time, end_time, status, 
+      executor_id, schedule_exec_time, invalid, 
+      input_params)
+    values (#{execId,jdbcType=INTEGER}, #{projectId,jdbcType=INTEGER}, #{version,jdbcType=INTEGER}, 
+      #{flowId,jdbcType=VARCHAR}, #{jobId,jdbcType=VARCHAR}, #{attempt,jdbcType=INTEGER}, 
+      #{startTime,jdbcType=BIGINT}, #{endTime,jdbcType=BIGINT}, #{status,jdbcType=TINYINT}, 
+      #{executorId,jdbcType=INTEGER}, #{scheduleExecTime,jdbcType=BIGINT}, #{invalid,jdbcType=TINYINT}, 
+      #{inputParams,jdbcType=LONGVARBINARY})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bigdatayu.springboot.springboot7.entity.executionJobs">
+    insert into execution_jobs
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="execId != null">
+        exec_id,
+      </if>
+      <if test="projectId != null">
+        project_id,
+      </if>
+      <if test="version != null">
+        version,
+      </if>
+      <if test="flowId != null">
+        flow_id,
+      </if>
+      <if test="jobId != null">
+        job_id,
+      </if>
+      <if test="attempt != null">
+        attempt,
+      </if>
+      <if test="startTime != null">
+        start_time,
+      </if>
+      <if test="endTime != null">
+        end_time,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="executorId != null">
+        executor_id,
+      </if>
+      <if test="scheduleExecTime != null">
+        schedule_exec_time,
+      </if>
+      <if test="invalid != null">
+        invalid,
+      </if>
+      <if test="inputParams != null">
+        input_params,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="execId != null">
+        #{execId,jdbcType=INTEGER},
+      </if>
+      <if test="projectId != null">
+        #{projectId,jdbcType=INTEGER},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=INTEGER},
+      </if>
+      <if test="flowId != null">
+        #{flowId,jdbcType=VARCHAR},
+      </if>
+      <if test="jobId != null">
+        #{jobId,jdbcType=VARCHAR},
+      </if>
+      <if test="attempt != null">
+        #{attempt,jdbcType=INTEGER},
+      </if>
+      <if test="startTime != null">
+        #{startTime,jdbcType=BIGINT},
+      </if>
+      <if test="endTime != null">
+        #{endTime,jdbcType=BIGINT},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="executorId != null">
+        #{executorId,jdbcType=INTEGER},
+      </if>
+      <if test="scheduleExecTime != null">
+        #{scheduleExecTime,jdbcType=BIGINT},
+      </if>
+      <if test="invalid != null">
+        #{invalid,jdbcType=TINYINT},
+      </if>
+      <if test="inputParams != null">
+        #{inputParams,jdbcType=LONGVARBINARY},
+      </if>
+    </trim>
+  </insert>
+</mapper>

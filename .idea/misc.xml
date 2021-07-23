@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/springboot-0/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-1/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-2/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-3/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-4/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-5/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-6/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-7/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="corretto-11" project-jdk-type="JavaSDK" />
+</project>
